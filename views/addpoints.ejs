@@ -1,0 +1,13 @@
+<%- include("partials/header1") %>
+<div class="container ">
+    <div><h1 ><%=data.returned.namelocation%></h1></div>
+    <div class="row d-flex justify-content-center">
+        <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=data.returned.image%>">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div><h4 id="destlat"><%=data.returned.namelocation%>'s LATITUDE : <%=data.returned.latitude%></h4></div>
+            <div><h4 id="destlong"><%=data.returned.namelocation%>'s LONGITUDE : <%=data.returned.longitude%></h4></div>
+        </div>
+        <h3>Congo!! Points Added</h3>
+    </div>
+</div>
+<%- include("partials/footer1") %>

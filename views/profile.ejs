@@ -1,0 +1,31 @@
+<%- include("partials/header1") %>
+
+    <h1 class="text-center">Hello! <%=user.fullname%></h1>
+    <div class="container">
+        <div class="row d-flex justify-content-center" style="margin-bottom:100px">
+            <div class="d-flex justify-content-center col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <img height="300px" width="300px" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; border-radius: 15px;"  src="<%=user.profile%>">
+            </div>
+
+
+            
+            <div style="max-width:90%; background-color: #d9e4f5;
+            background-image: linear-gradient(315deg, #d1dff5 0%, #f7d9de 74%); box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; border-radius: 15px;" class=" mt-5 mt-sm-5 mt-md-5 mt-lg-0 mt-xl-0 col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 ">
+                <h4 class="profilefont d-flex justify-content-start"><b>Name:    </b><%= user.fullname%></h4>
+                <h4 class="profilefont d-flex justify-content-start"><b>Username:   </b><%=user.username%></h4>
+                <h4 class="profilefont d-flex justify-content-start"><b>Points:  </b><%=user.points%></h4>
+                <h4 class="profilefont d-flex justify-content-start"><b>Visited Destinations:</b><%=user.visited.length%></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center"></div>
+    <div class="">
+    
+    
+    
+</div>
+    
+        
+</div>
+
+<%- include("partials/footer1") %>

@@ -1,0 +1,32 @@
+<%- include("partials/header1") %>
+<div class="container">
+    <!--<div class="row d-flex justify-content-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-3 p-3 mb-2 bg-gradient bg-success text-white text-center">Registered Successfully. Please Login to Continue</div>
+    </div>-->
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <div class="row d-flex justify-content-center">
+            <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <label for="exampleUserName">Username</label>
+                <input name="username" type="text" class="form-control" id="exampleUserName"  placeholder="Enter Username" required>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+        <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <label for="examplePassword">Password</label>
+            <input name="password" type="password" class="form-control" id="examplePassword"  placeholder="Enter Password" required>
+          </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+          <button type="submit" value="Login" class="btn bgc text-white">Login</button>
+          </div>
+          </form>
+        
+      </form>
+    </div>
+    <div style="margin-bottom: 100px;"class="row d-flex justify-content-center">
+        <div style="margin-top:20px;margin-right:20px;"><h5>New User?</h5></div>
+        <div style="margin-top:10px;margin-right:0px;"><a href="/signup"><button value="Signup" class="btn bgc text-white">Signup</button></a></div>
+    </div>
+
+<%- include("partials/footer1") %>

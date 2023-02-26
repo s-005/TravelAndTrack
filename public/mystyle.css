@@ -1,0 +1,258 @@
+
+.errr-msg
+{
+  padding:10 px 15px;
+  background-color: rgb(228, 22, 22);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color:white;
+  box-shadow:0px 6px 12px rgba(0,0,0,0.2);
+}
+.second:hover
+{
+  background-color: rgba(0, 0,0 , 0.1);
+  
+}
+#cardcolor
+{
+  background-color: #f7accf;
+background-image: linear-gradient(147deg, #f7accf 0%, #ff1053 74%);
+}
+.list
+{
+  background-image: linear-gradient( #da8989 0%, #e8e8e8 70%);
+}
+.hvr:hover
+{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  transition:500ms;
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 576px) {
+  .profilefont
+{
+  font-size:23px;
+}
+  body{
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  }
+  .btnmgn
+  {
+    margin-left: 25%;
+    margin-bottom: 200px;
+  }
+  .bgc
+  {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  }
+  .tagline{color: black; font-family: "Great Vibes", cursive; font-size:25px; line-height: 30px; font-weight: normal; margin-bottom: 0px; margin-top: -10px; text-align: center; text-shadow: 0 1px 1px #fff; }
+h1, h3 {
+  color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 60px; line-height: 80px; font-weight: normal; margin-bottom: 0px; margin-top: 0px; text-align: center; text-shadow: 0 1px 1px #fff; }
+.road
+{
+height:50px;
+width:7760px;
+animation: movei 10s linear infinite;
+}
+@keyframes movei 
+{
+0%{transform:translate(0px)}
+100%{transform:translate(-400px)}
+}
+.image1 
+{
+height:90px;
+width:180px;
+margin-left: 18%;
+margin-bottom: 10px;
+animation: move 15s linear infinite;
+}
+.sliding-background {
+height: 200px;
+width: 5076px;
+}
+.sliding-background {
+background: url("monument.png") repeat-x;
+height: 200px;
+width: 5076px;
+}
+@keyframes slide {
+0%{
+transform: translate3d(0, 0, 0);
+}
+100%{
+transform: translate3d(-1692px, 0, 0);
+}
+}
+.sliding-background {
+background: url("monument.png") repeat-x;
+height: 155px;
+width: 5076px;
+margin-bottom: 48px;
+animation: slide 60s linear infinite;
+}
+@keyframes move 
+{
+0%{transform:translate(-200px)}
+100%{transform:translate(450px)}
+}
+.mob
+{
+font-size:35px;
+}
+#b
+        {
+            margin-left:38%;
+        }
+}
+@media only screen and (min-width: 576px ) and (max-width: 768px)  {
+  .profilefont
+{
+  font-size:30px;
+}
+  body{
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  }
+  .btnmgn
+  {
+    margin-left: 30%;
+    margin-bottom: 200px;
+  }
+  .bgc
+  {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  }
+  .tagline{color: black; font-family: "Great Vibes", cursive; font-size:30px; line-height: 30px; font-weight: normal; margin-bottom: 0px; margin-top: -10px; text-align: center; text-shadow: 0 1px 1px #fff; }
+h1, h3 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 80px; line-height: 120px; font-weight: normal; margin-bottom: 0px; margin-top: 0px; text-align: center; text-shadow: 0 1px 1px #fff; }
+.road
+{
+height:80px;
+width:7760px;
+animation: movei 10s linear infinite;
+}
+@keyframes movei 
+{
+0%{transform:translate(0px)}
+100%{transform:translate(-400px)}
+}
+.image1 
+{
+height:110px;
+width:180px;
+margin-left: 18%;
+margin-bottom: 10px;
+animation: move 15s linear infinite;  
+}
+.sliding-background {
+height: 400px;
+width: 5076px;
+}
+.sliding-background {
+background: url("monument.png") repeat-x;
+height: 500px;
+width: 5076px;
+}
+@keyframes slide {
+0%{
+transform: translate3d(0, 0, 0);
+}
+100%{
+transform: translate3d(-1692px, 0, 0);
+}
+}
+.sliding-background {
+background: url("monument.png") repeat-x;
+height: 155px;
+width: 5076px;
+margin-bottom: 78px;
+animation: slide 60s linear infinite;
+}
+@keyframes move 
+{
+0%{transform:translate(-250px)}
+100%{transform:translate(640px)}
+}
+.mob
+{
+  font-size:40px;
+}
+#b
+        {
+            margin-left:45%;
+        }
+}
+@media only screen and (min-width: 768px )    {
+  .profilefont
+{
+  font-size:35px;
+}
+  body{
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  }
+  
+  .btnmgn
+  {
+    margin-left: 37%;
+    margin-bottom: 200px;
+  }
+  .bgc
+  {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  }
+  .tagline{color: black; font-family: "Great Vibes", cursive; font-size:40px; line-height: 40px; font-weight: normal; margin-bottom: 0px; margin-top: -25px; text-align: center; text-shadow: 0 1px 1px #fff; }
+h1, h3 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 100px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 0px; text-align: center; text-shadow: 0 1px 1px #fff; }
+.road
+{
+height:50px;
+  width:7760px;
+  animation: movei 10s linear infinite;
+}
+@keyframes movei 
+{
+  0%{transform:translate(0px)}
+  100%{transform:translate(-400px)}
+}
+.image1 
+{
+  height:100px;
+  width:200px;
+  margin-left: 18%;
+  margin-bottom: 10px;
+  animation: move 15s linear infinite;
+  
+}
+@keyframes slide {
+0%{
+  transform: translate3d(0, 0, 0);
+}
+100%{
+  transform: translate3d(-1692px, 0, 0);
+}
+}
+.sliding-background {
+background: url("monument.png") repeat-x;
+background-size: 37%;
+height: 180px;
+width: 5076px;
+margin-bottom: 48px;
+animation: slide 35s linear infinite;
+}
+
+@keyframes move 
+{
+  0%{transform:translate(-400px)}
+  100%{transform:translate(1300px)}
+}
+.mob
+{
+  font-size:50px;
+}
+#b
+        {
+            margin-left:47%;
+        }
+}

@@ -1,0 +1,26 @@
+<%- include("partials/header1") %>
+<h1>Nearby Locations</h1>
+<form id="autosubmit" action="/explore" method="POST">
+    <input type="hidden"  id="mylatitude"   name="mylatitude" value="a">
+    <input type="hidden"  id="mylongitude"  name="mylongitude" value="b">
+</form> 
+<script>
+    window.onload = function(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(function(position){
+                        var latitude = (Number)(position.coords.latitude).toFixed(6);
+                        var longitude = (Number)(position.coords.longitude).toFixed(6);
+                        document.getElementById("mylatitude").setAttribute("value",latitude);
+                        document.getElementById("mylongitude").setAttribute("value",longitude);
+                        document.getElementById("autosubmit").submit();
+                    },
+                    function error(msg) {alert('Please enable your GPS position feature.');},
+                    {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
+                    
+                } 
+                else{
+                    alert("Geolocation API is not supported in your browser.");
+                }
+            }
+</script>
+<%- include("partials/footer1") %>

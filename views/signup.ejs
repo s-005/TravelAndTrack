@@ -1,0 +1,51 @@
+<%- include("partials/header1") %>
+<h1>Signup</h1>
+<div class="container">
+    
+    
+    <form action="/signup" method="POST">
+        
+        <div class="row d-flex justify-content-center">
+            <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <label for="exampleName">Name*</label>
+                <input name="name" type="text" class="form-control" id="exampleName"  placeholder="Enter Username" required>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <label for="exampleUserName">Username*</label>
+                <input name="username" type="text" class="form-control" id="exampleUserName"  placeholder="Enter Username" required>
+            </div>
+        </div>
+
+
+        <div class="row d-flex justify-content-center">
+        <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <label for="examplePassword">Password*</label>
+            <input name="password" type="password" class="form-control" id="examplePassword"  placeholder="Enter Password" required>
+          </div>
+          </div>
+
+          <div class="row d-flex justify-content-center">
+            <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <label for="exampleInputImage">Image*(This is Default URL)</label>
+              <input name="image" value="https://i.ibb.co/YNzjt8X/Clipart-Key-1461473.png" type="url" class="form-control" id="exampleInputImage"  placeholder="Enter URL (Ex-Google Drive Link)" required>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-start"></div>
+
+          <div class="row d-flex justify-content-center">
+          <button type="submit" class="btn bgc text-white ">Signup</button>
+          </div>
+          </form>
+        
+      </form>
+    </div>
+    
+    <div style="margin-bottom: 100px;"class="row d-flex justify-content-center">
+        <div style="margin-top:20px;margin-right:20px;"><h5>Existing User?</h5></div>
+        <div style="margin-top:10px;margin-right:0px;"><a href="/login"><button value="Login" class="btn bgc text-white">Login</button></a></div>
+    </div>
+<%- include("partials/footer1") %>

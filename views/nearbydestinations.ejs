@@ -1,0 +1,31 @@
+<%- include("partials/header1") %>
+<h3>Nearby Destinations</h3>
+<div class="container">
+        <div class="row d-flex justify-content-center">
+        <% destinations.forEach(function(place){%>
+            <%var latitude=mylatitude%>
+            <%var longitude=mylongitude%>
+            <%var lat2=place.latitude%>
+            <%var long2=place.longitude%>
+            <%var R = 6371e3;%>
+            <%var φ1 = latitude * Math.PI/180;%>
+            <%var φ2 = lat2 * Math.PI/180;%>
+            <%var Δφ = (lat2-latitude) * Math.PI/180;%>
+            <%var Δλ = (long2-longitude) * Math.PI/180;%>
+            <%var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +Math.cos(φ1) * Math.cos(φ2) *Math.sin(Δλ/2) * Math.sin(Δλ/2);%>
+            <%var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));%>
+            <%var d = R * c;%>
+            <%if(d<500000){%>
+            <div class="card" style="margin:auto;  height:430px; max-width: 260px;">
+                <img class="card-img-top" style="height:180px;" src="<%=place.image%>" alt="Card image cap">
+                <div class="list card-body">
+                  <h5 class="card-title"><%=place.namelocation%></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="/destinations/<%=place.uniquename%>" class="bgc btn btn-primary">More Info</a>
+                </div>
+              </div>
+                <%}%>
+            <%});%>
+        </div>
+    </div>
+<%- include("partials/footer1") %>

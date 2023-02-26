@@ -1,0 +1,20 @@
+<%- include("partials/header1") %>
+<h3>Destinations</h3>
+<!--<h4><a href="/addnew">Add a new Destination</a></h4>-->
+<div class="container">
+        <div class="row d-flex justify-content-center">
+        <% destinations.forEach(function(place){%>
+            <div class="card" style="margin-bottom:40px;margin-left:10px;border-radius: 20px;   height:430px; max-width: 260px;">
+                <img class="card-img-top" style="border-radius: 0px; height:180px;" src="<%=place.image%>" alt="Card image cap">
+                <div class="list card-body "style="border-top-radius: 0px;">
+                  <h5 class="card-title"><%=place.namelocation%></h5>
+                  <p class="card-text"><%=place.namelocation%> is located in <%=place.city%> city of <%=place.state%>. It's latitude is <%=place.latitude%> and longitude is <%=place.longitude%></p>
+                  <a href="/destinations/<%=place.uniquename%>" class="bgc btn btn-primary">More Info</a>
+                </div>
+              </div>
+            <%});%>
+            
+        </div>
+        <h4 style="margin-bottom: 100px;"class="row d-flex justify-content-center">Keep Exploring!!</h4>
+    </div>
+    <%- include("partials/footer1") %>

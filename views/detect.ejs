@@ -1,0 +1,30 @@
+<%- include("partials/header1") %>
+<div class= "container">
+    <h3>Location Verification</h3>
+        
+          <div style="margin-top: 10px;margin-bottom: 10px;">
+            <h2 class="text-center" style="font-size: 40px;">!!Instructions!!</h2>
+            <ol>
+                <h4 ><li>Your Distance Should be less than 100 m from the selected Location</li></h4>
+                <h4><li>This should be your first visit to this Location.</li></h4>
+            </ol>
+          </div>
+          <div class="dropdown btnmgn" >
+
+            <button class="btn bgc text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Destination
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% destinations.forEach(function(place){%>
+                    <a class="dropdown-item" href="/check/<%=place.uniquename%>"><%=place.namelocation%></a>
+                    <!--<button class="dropdown-item" onclick="getdist()"><%=place.namelocation%></button>-->
+                <%});%>
+            </div>
+
+            
+          </div>
+          
+    </div>
+
+<%- include("partials/footer1") %>

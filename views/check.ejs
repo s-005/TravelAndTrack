@@ -1,0 +1,163 @@
+<%- include("partials/header1") %>
+
+<%var lat2=returned.latitude%>
+<%var long2=returned.longitude%>
+<%var latitude, d=0;%>
+<%var longitude;%>
+<h1>Location Verification</h1>
+
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+        <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=returned.image%>">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div><h4 ><%=returned.namelocation%></h4></div>
+            <div><h4 id="destlat"><%=returned.namelocation%>'s LATITUDE : <%=returned.latitude%></h4></div>
+            <div><h4 id="destlong"><%=returned.namelocation%>'s LONGITUDE : <%=returned.longitude%></h4></div>
+            <div><h4 id="yourlong"></h4></div>
+            <div><h4 id="yourlat"></h4></div>
+            <div><h4 id="yourdist"></h4></div>
+        </div>
+        <div style="margin-bottom:180px;"class="text-center"><h4 id="near"></h4></div>
+    </div>
+</div>
+    <div class="text-center" style="margin-bottom:-60px;"><h4>Check if its your first visit!!</h4></div>
+<div class="row d-flex justify-content-center">
+<form id="autosubmit" action="/detect" method="POST">
+    <input type="hidden"  id="uniquename"   name="uniquename" value="<%=returned.uniquename%>">
+    <input type="hidden"  id="mylatitude"   name="mylatitude" value="a">
+    <input type="hidden"  id="mylongitude"  name="mylongitude" value="b">
+    <input type="hidden"  id="distance"     name="distance" value="c">
+    <input style="margin-top: 70px; margin-bottom: 100px;"type="hidden" id="sbm" class="btn btn-primary" value="">
+</form>
+
+</div>
+<!--check with logged in user ka database-->
+<script>
+    window.setTimeout(function(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(function(position){
+                        latitude = (Number)(position.coords.latitude).toFixed(6);
+                        longitude = (Number)(position.coords.longitude).toFixed(6);
+                        
+                        var x = document.getElementById("yourlat");
+                        x.innerHTML="<div>Your LATITUDE: </div>"  +latitude;    
+                        x = document.getElementById("yourlong");
+                        x.innerHTML="<div>Your LONGITUDE: </div>"  +longitude; 
+                        
+                        lat2=(Number)(<%-lat2%>);
+                        long2=(Number)(<%-long2%>); 
+                        
+                        const R = 6371e3; // metres
+                        const φ1 = latitude * Math.PI/180; // φ, λ in radians
+                        const φ2 = lat2 * Math.PI/180;
+                        const Δφ = (lat2-latitude) * Math.PI/180;
+                        const Δλ = (long2-longitude) * Math.PI/180;
+                        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                                  Math.cos(φ1) * Math.cos(φ2) *
+                                  Math.sin(Δλ/2) * Math.sin(Δλ/2);
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                              d = R * c; // in metres
+                              d = (Number)(d).toFixed(2);
+                        x = document.getElementById("yourdist");
+                        x.innerHTML="<div>Your DISTANCE: </div>"  +d+" mt"; 
+                        console.log(d);
+                        if(d>300000)
+                        {
+                            var y=document.getElementById("near");
+                            y.innerHTML="Too far from destination!! Get Closer to get points :)"; 
+                            document.getElementById("sbm").setAttribute("class",".d-none");
+                        
+                        }
+                        else
+                        {
+                            document.getElementById("mylatitude").setAttribute("value",latitude);
+                            document.getElementById("mylongitude").setAttribute("value",longitude);
+                            document.getElementById("distance").setAttribute("value",d);
+                            document.getElementById("sbm").setAttribute("type","submit");
+                            
+                            document.getElementById("sbm").setAttribute("value","Check");
+                        }
+                        console.log(<%=returned.points%>);
+                        console.log(document.getElementById("near").dataset.near);
+                        document.getElementById("near").dataset.near+=950;
+                        console.log(document.getElementById("near").dataset.near);
+
+                        // if(d<400000)
+                        //       {
+                        //           currentUser.points+=returned.points;
+                        //       }
+                        //       console.log(d);
+                        //       console.log(<%-d%>);
+                        
+                    },
+                    function error(msg) {alert('Please enable your GPS position feature.');},
+                    {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
+                    
+                } 
+                else{
+                    alert("Geolocation API is not supported in your browser.");
+                }
+            },500)
+    /*old--> window.onload = function(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(function(position){
+                        latitude = (Number)(position.coords.latitude).toFixed(6);
+                        longitude = (Number)(position.coords.longitude).toFixed(6);
+                        
+                        var x = document.getElementById("yourlat");
+                        x.innerHTML="<div>Your LATITUDE: </div>"  +latitude;    
+                        x = document.getElementById("yourlong");
+                        x.innerHTML="<div>Your LONGITUDE: </div>"  +longitude; 
+                        
+                        lat2=(Number)(<%-lat2%>);
+                        long2=(Number)(<%-long2%>); 
+                        
+                        const R = 6371e3; // metres
+                        const φ1 = latitude * Math.PI/180; // φ, λ in radians
+                        const φ2 = lat2 * Math.PI/180;
+                        const Δφ = (lat2-latitude) * Math.PI/180;
+                        const Δλ = (long2-longitude) * Math.PI/180;
+                        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                                  Math.cos(φ1) * Math.cos(φ2) *
+                                  Math.sin(Δλ/2) * Math.sin(Δλ/2);
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                              d = R * c; // in metres
+                              d = (Number)(d).toFixed(2);
+                        x = document.getElementById("yourdist");
+                        x.innerHTML="<div>Your DISTANCE: </div>"  +d+" mt"; 
+                        console.log(d);
+                        if(d>500000)
+                        {
+                            var y=document.getElementById("near");
+                            y.innerHTML="Too far from destination!! Get Closer to get points :)"; 
+                        }
+                        else
+                        {
+                            document.getElementById("mylatitude").setAttribute("value",latitude);
+                            document.getElementById("mylongitude").setAttribute("value",longitude);
+                            document.getElementById("distance").setAttribute("value",d);
+                            document.getElementById("sbm").setAttribute("type","submit");
+                        }
+                        console.log(<%=returned.points%>);
+                        console.log(document.getElementById("near").dataset.near);
+                        document.getElementById("near").dataset.near+=950;
+                        console.log(document.getElementById("near").dataset.near);
+
+                        // if(d<400000)
+                        //       {
+                        //           currentUser.points+=returned.points;
+                        //       }
+                        //       console.log(d);
+                        //       console.log(<%-d%>);
+                        
+                    },
+                    function error(msg) {alert('Please enable your GPS position feature.');},
+                    {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
+                    
+                } 
+                else{
+                    alert("Geolocation API is not supported in your browser.");
+                }
+            }*/
+</script>
+<%- include("partials/footer1") %>

@@ -1,0 +1,52 @@
+var latitude;
+            var longitude;
+           /*parshuram 25.13357879779951, 75.82462686450084*/
+           /*tajmahal 27.175354762451565, 78.04235677412788*/
+            var lat2=25.13357879779951;
+            var long2=75.82462686450084;
+getlocation=function getLocation()
+{
+
+    if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition(function(position)
+        {
+         latitude = position.coords.latitude;
+         longitude = position.coords.longitude;
+         const R = 6371e3; // metres
+         const φ1 = latitude * Math.PI/180; // φ, λ in radians
+         const φ2 = lat2 * Math.PI/180;
+         const Δφ = (lat2-latitude) * Math.PI/180;
+         const Δλ = (long2-longitude) * Math.PI/180;
+         const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                   Math.cos(φ1) * Math.cos(φ2) *
+                   Math.sin(Δλ/2) * Math.sin(Δλ/2);
+         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+         const d = R * c; // in metres
+        var accuracy = position.coords.accuracy;
+        var coords = new google.maps.LatLng(latitude, longitude);   
+        var mapOptions = {
+                            zoom: 15,
+                            center: coords,
+                            mapTypeControl: true,
+                            navigationControlOptions:
+                            {
+                                style: google.maps.NavigationControlStyle.SMALL
+                            },
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };         
+        var x = document.getElementById("output");
+        console.log(d);
+        x.innerHTML = "<div>Distance: </div>"  +d+ " mt<div>Your Latitude: </div>"  +latitude+ "<div>Your Longitude: </div>"  +longitude+ "<div>Accuracy: </div>"  +accuracy; 
+        },
+        function error(msg) {alert('Please enable your GPS position feature.');},
+        {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
+        
+        
+    } 
+    else 
+    {
+        alert("Geolocation API is not supported in your browser.");
+    }
+    
+}

@@ -1,0 +1,27 @@
+<%- include("partials/header1") %>
+<%var c=1;%>
+<%console.log(currentUser)%>
+<h1>Leaderboard</h1>
+<ol>
+    <div class="d-flex justify-content-center">
+        <div class="container">
+            <div style="width:100%;" class="row d-flex justify-content-center">
+                <div style="border: 2px solid black;"class="bgc text-white col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">Rank</div>
+                <div style="border: 2px solid black;"class="bgc text-white col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">Username</div>
+                <div style="border: 2px solid black;"class="bgc text-white col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">Points</div>
+            </div>
+        </div>
+    </div>
+<% allusers.forEach(function(singleuser){%>
+<div class="d-flex justify-content-center">
+    <div class="container">
+        <div style="width:100%;" class="second row d-flex justify-content-center ">
+            <div style="border: 2px solid black;"class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"><%=c%><%c++%></div>
+            <div style="border: 2px solid black;"class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><a href="/profile/<%=singleuser.username%>"><%=singleuser.username%></a></div>
+            <div style="border: 2px solid black;"class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"><%=singleuser.points%></div>
+        </div>
+    </div>
+</div>
+<%});%>
+<h4 class="text-center"style="margin-top:50px;margin-bottom: 100px;">!!Keep Travelling!!</h4>
+<%- include("partials/footer1") %>
