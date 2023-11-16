@@ -98,66 +98,6 @@
                     alert("Geolocation API is not supported in your browser.");
                 }
             },500)
-    /*old--> window.onload = function(){
-                if (navigator.geolocation){
-                    navigator.geolocation.getCurrentPosition(function(position){
-                        latitude = (Number)(position.coords.latitude).toFixed(6);
-                        longitude = (Number)(position.coords.longitude).toFixed(6);
-                        
-                        var x = document.getElementById("yourlat");
-                        x.innerHTML="<div>Your LATITUDE: </div>"  +latitude;    
-                        x = document.getElementById("yourlong");
-                        x.innerHTML="<div>Your LONGITUDE: </div>"  +longitude; 
-                        
-                        lat2=(Number)(<%-lat2%>);
-                        long2=(Number)(<%-long2%>); 
-                        
-                        const R = 6371e3; // metres
-                        const φ1 = latitude * Math.PI/180; // φ, λ in radians
-                        const φ2 = lat2 * Math.PI/180;
-                        const Δφ = (lat2-latitude) * Math.PI/180;
-                        const Δλ = (long2-longitude) * Math.PI/180;
-                        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-                                  Math.cos(φ1) * Math.cos(φ2) *
-                                  Math.sin(Δλ/2) * Math.sin(Δλ/2);
-                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                              d = R * c; // in metres
-                              d = (Number)(d).toFixed(2);
-                        x = document.getElementById("yourdist");
-                        x.innerHTML="<div>Your DISTANCE: </div>"  +d+" mt"; 
-                        console.log(d);
-                        if(d>500000)
-                        {
-                            var y=document.getElementById("near");
-                            y.innerHTML="Too far from destination!! Get Closer to get points :)"; 
-                        }
-                        else
-                        {
-                            document.getElementById("mylatitude").setAttribute("value",latitude);
-                            document.getElementById("mylongitude").setAttribute("value",longitude);
-                            document.getElementById("distance").setAttribute("value",d);
-                            document.getElementById("sbm").setAttribute("type","submit");
-                        }
-                        console.log(<%=returned.points%>);
-                        console.log(document.getElementById("near").dataset.near);
-                        document.getElementById("near").dataset.near+=950;
-                        console.log(document.getElementById("near").dataset.near);
-
-                        // if(d<400000)
-                        //       {
-                        //           currentUser.points+=returned.points;
-                        //       }
-                        //       console.log(d);
-                        //       console.log(<%-d%>);
-                        
-                    },
-                    function error(msg) {alert('Please enable your GPS position feature.');},
-                    {maximumAge:10000, timeout:5000, enableHighAccuracy: true});
-                    
-                } 
-                else{
-                    alert("Geolocation API is not supported in your browser.");
-                }
-            }*/
+    
 </script>
 <%- include("partials/footer1") %>
